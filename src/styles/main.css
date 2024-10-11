@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Gurajada&family=Satisfy&display=swap");
+
+:root {
+  --color-primary: #b96709;
+  --color-secondary: #227395;
+  --color-accent: #62aacc;
+  --color-muted: #5e4b35;
+  --color-dark: #252f33;
+  --color-text: #333230;
+  --color-background: #f7f7f7;
+  --color-white: #ffffff;
+  --font-main: "Gurajada", serif;
+  --font-accent: "Satisfy", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-accent);
+  margin-bottom: 20px;
+  color: var(--color-primary);
+}
+
+p {
+  margin-bottom: 20px;
+  color: var(--color-dark);
+}
+
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.text-accent {
+  color: var(--color-accent);
+}
+.text-muted {
+  color: var(--color-muted);
+}
+.text-dark {
+  color: var(--color-dark);
+}
+.text-center {
+  text-align: center;
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+.bg-accent {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+.bg-muted {
+  background-color: var(--color-muted);
+  color: var(--color-white);
+}
+.bg-dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: var(--font-accent);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.button-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.button-accent {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.button:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: var(--color-white);
+  margin: 20px 0;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 15px;
+  font-family: var(--font-accent);
+}
+
+.card-body {
+  padding: 20px;
+  color: var(--color-text);
+}
+
+.card-footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: right;
+  color: var(--color-muted);
+} */
+
+footer {
+  color: var(--color-background);
+  background-color: var(--color-accent);
+  padding: 10px;
+  flex-shrink: 0;
+}
