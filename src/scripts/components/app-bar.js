@@ -18,13 +18,13 @@ class AppBar extends HTMLElement {
             box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 99;
         }
 
-        .appbar {
+        header {
             background-color: var(--color-dark);
             color: var(--color-white);
-            padding: 0 20px;
+            padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -35,23 +35,30 @@ class AppBar extends HTMLElement {
             font-size: 2em;
             color: var(--color-white);
             text-decoration: none;
+            min-width: 44px;
+            min-height: 44px;
         }
         
-        .appbar-nav {
+        nav {
             display: flex;
             align-items: center;
         }
 
-        .appbar-nav a {
+        nav a {
             margin-left: 20px;
             color: var(--color-white);
             font-size: 1.5em;
             text-decoration: none;
             transition: color 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
         }
 
-        .appbar-nav a:hover {
+        nav a:hover {
             color: var(--color-accent);
+        }
+        nav a:focus {
+            outline: 4px solid var(--color-accent);
         }
 
         .menu-toggle {
@@ -61,6 +68,11 @@ class AppBar extends HTMLElement {
             color: var(--color-white);
             font-size: 1.5em;
             cursor: pointer;
+            min-width: 44px;
+            min-height: 44px;
+        }
+        .menu-toggle:focus {
+            outline: 4px solid var(--color-accent);
         }
 
         .drawer {
@@ -89,10 +101,16 @@ class AppBar extends HTMLElement {
             text-decoration: none;
             margin-bottom: 15px;
             transition: color 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
         }
 
         .drawer-nav a:hover {
             color: var(--color-accent);
+        }
+        .drawer-nav a:focus {
+            outline: 4px solid var(--color-accent);
+            outline-offset: 2px;
         }
 
         .overlay {
@@ -107,7 +125,7 @@ class AppBar extends HTMLElement {
         }
 
         @media (max-width: 768px) {
-            .appbar-nav {
+            nav {
                 display: none;
             }
 
@@ -156,20 +174,20 @@ class AppBar extends HTMLElement {
 
         this._shadowRoot.appendChild(this._style);
         this._shadowRoot.innerHTML += `      
-        <div class="appbar">
-            <h1 class="appbar-brand">RestoZone</h1>
-            <div class="appbar-nav">
-                <a href="/">Home</a>
-                <a href="#">Favorite</a>
-                <a href="https://github.com/farelyudapratama" target="_blank">About Us</a>
-            </div>
-            <button class="menu-toggle">&#9776;</button>
-        </div>
+        <header>
+            <a href="/" class="appbar-brand" aria-label="Home">RestoZone</a>
+            <nav>
+                <a href="/" aria-label="Home">Home</a>
+                <a href="#" aria-label="Favorite">Favorite</a>
+                <a href="https://github.com/farelyudapratama" target="_blank" aria-label="About Us">About Us</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+        </header>
         <div class="drawer">
             <nav class="drawer-nav">
-                <a href="/">Home</a>
-                <a href="#">Favorite</a>
-                <a href="https://github.com/farelyudapratama" target="_blank">About Us</a>
+                <a href="/" aria-label="Home">Home</a>
+                <a href="#" aria-label="Favorite">Favorite</a>
+                <a href="https://github.com/farelyudapratama" target="_blank" aria-label="About Us">About Us</a>
             </nav>
         </div>
         <div class="overlay"></div>

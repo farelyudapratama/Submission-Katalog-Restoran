@@ -34,6 +34,7 @@ class HeroElement extends HTMLElement {
                 right: 0;
                 height: 100px;
                 background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+                aria-hidden: true;
             }
             .hero-content {
                 text-align: center;
@@ -86,6 +87,34 @@ class HeroElement extends HTMLElement {
                 transform: translateY(-3px);
                 box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             }
+            
+            @media (max-width: 768px) {
+                .hero-content {
+                    padding: 0 20px;
+                }
+                h1 {
+                    font-size: 3em;
+                }
+                p {
+                    font-size: 1em;
+                }
+                .cta-button {
+                    font-size: 1em;
+                }
+            }
+
+            @media (max-height: 600px) {
+                .hero::after {
+                    height: 30px;
+                }
+                .hero-content {
+                    padding: 20px;
+                }
+                .cta-button {
+                    display: none;
+                }
+            }
+
             @media (min-width: 1200px) {
                 .hero {
                     width: 1000px;
@@ -120,7 +149,6 @@ class HeroElement extends HTMLElement {
         ctaButton.addEventListener('click', (event) => {
             event.preventDefault();
             const targetSection = document.getElementById('explore');
-            console.log('Target Section:', targetSection);
             if (targetSection) {
                 const offset = 100;
                 const elementPosition = targetSection.getBoundingClientRect().top;
@@ -136,17 +164,16 @@ class HeroElement extends HTMLElement {
         });
     }
 
-
     render() {
         this._updateStyle();
         this.shadowRoot.appendChild(this._style);
 
         this.shadowRoot.innerHTML += `
             <div class="hero">
-                <div class="hero-content">
+                <div class="hero-content" tabindex="0">
                     <h1>Discover Culinary Delights</h1>
                     <p>Explore a world of exquisite flavors and unforgettable dining experiences in your area.</p>
-                    <a href="#explore" class="cta-button">Explore Restaurants</a>
+                    <a href="#explore" class="cta-button" role="button" aria-label="Explore restaurants section">Explore Restaurants</a>
                 </div>
             </div>
         `;

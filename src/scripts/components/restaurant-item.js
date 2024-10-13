@@ -107,18 +107,18 @@ class RestaurantItem extends HTMLElement {
     this._updateStyle();
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-      <div class="restaurant-item">
+      <div class="restaurant-item" tabindex="0" role="article" aria-label="Restaurant ${this._restaurant.name}, located in ${this._restaurant.city} with a rating of ${this._restaurant.rating} stars">
         <div class="image-container">
-          <img src="${this._restaurant.pictureId}" alt="${this._restaurant.name}">
-          <div class="city-tag">${this._restaurant.city}</div>
+          <img src="${this._restaurant.pictureId}" alt="Image of ${this._restaurant.name} restaurant">
+          <div class="city-tag" aria-label="City: ${this._restaurant.city}">${this._restaurant.city}</div>
         </div>
         <div class="content">
-          <div class="rating">
+          <div class="rating" aria-label="Rating: ${this._restaurant.rating} stars">
             <span class="rating-value">${this._restaurant.rating}</span>
             <span>&#9733;</span>
           </div>
-          <h2>${this._restaurant.name}</h2>
-          <p>${this._restaurant.description}</p>
+          <h2 tabindex="0">${this._restaurant.name}</h2>
+          <p tabindex="0">${this._restaurant.description}</p>
         </div>
       </div>
     `;

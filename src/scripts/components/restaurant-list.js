@@ -28,7 +28,6 @@ class RestaurantsList extends HTMLElement {
                 color: var(--color-primary);
             }
     
-    
             .restaurant-list {
                 margin: 0 25px;
                 margin-bottom: 5rem;
@@ -78,15 +77,16 @@ class RestaurantsList extends HTMLElement {
         this._shadowRoot.appendChild(this._style);
 
         this._shadowRoot.innerHTML += `
-            <h1>Explore Restaurants</h1>
+            <h1 tabindex="0">Explore Restaurants</h1>
         `;
 
         const restaurantList = document.createElement('div');
         restaurantList.classList.add('restaurant-list');
-
+        restaurantList.setAttribute('role', 'list');
         restaurants.forEach((restaurant) => {
             const restaurantItem = document.createElement('restaurant-item');
             restaurantItem.restaurant = restaurant;
+            restaurantItem.setAttribute('role', 'listitem');
             restaurantList.appendChild(restaurantItem);
         });
 
