@@ -25,6 +25,7 @@ class HeroElement extends HTMLElement {
                 align-items: center;
                 position: relative;
                 overflow: hidden;
+                
             }
             .hero::after {
                 content: '';
