@@ -21,7 +21,7 @@ class AppBar extends HTMLElement {
             z-index: 99;
         }
 
-        header {
+        .appbar {
             background-color: var(--color-dark);
             color: var(--color-white);
             padding: 14px 20px;
@@ -39,12 +39,12 @@ class AppBar extends HTMLElement {
             min-height: 44px;
         }
         
-        nav {
+        .appbar-nav {
             display: flex;
             align-items: center;
         }
 
-        nav a {
+        .appbar-nav a {
             margin-left: 20px;
             color: var(--color-white);
             font-size: 1.5em;
@@ -54,7 +54,7 @@ class AppBar extends HTMLElement {
             min-height: 44px;
         }
 
-        nav a:hover {
+        .appbar-nav a:hover {
             color: var(--color-accent);
         }
         nav a:focus {
@@ -125,7 +125,10 @@ class AppBar extends HTMLElement {
         }
 
         @media (max-width: 768px) {
-            nav {
+            .appbar {
+                padding: 0 14px;
+            }
+            .appbar-nav {
                 display: none;
             }
 
@@ -174,20 +177,20 @@ class AppBar extends HTMLElement {
 
         this._shadowRoot.appendChild(this._style);
         this._shadowRoot.innerHTML += `      
-        <header>
-            <a href="/" class="appbar-brand" aria-label="Home">RestoZone</a>
-            <nav>
-                <a href="/" aria-label="Home">Home</a>
-                <a href="#" aria-label="Favorite">Favorite</a>
-                <a href="https://github.com/farelyudapratama" target="_blank" aria-label="About Us">About Us</a>
-            </nav>
-            <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
-        </header>
+        <div class="appbar">
+            <h1 class="appbar-brand">RestoZone</h1>
+            <div class="appbar-nav">
+                <a href="/">Home</a>
+                <a href="#">Favorite</a>
+                <a href="https://github.com/farelyudapratama" target="_blank">About Us</a>
+            </div>
+            <button class="menu-toggle">&#9776;</button>
+        </div>
         <div class="drawer">
             <nav class="drawer-nav">
-                <a href="/" aria-label="Home">Home</a>
-                <a href="#" aria-label="Favorite">Favorite</a>
-                <a href="https://github.com/farelyudapratama" target="_blank" aria-label="About Us">About Us</a>
+                <a href="/">Home</a>
+                <a href="#">Favorite</a>
+                <a href="https://github.com/farelyudapratama" target="_blank">About Us</a>
             </nav>
         </div>
         <div class="overlay"></div>
