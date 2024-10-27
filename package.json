@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack-dev-server --config webpack.dev.js",
+    "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
     "test": "jest",
@@ -36,6 +36,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "idb": "^8.0.0",
     "regenerator-runtime": "^0.14.0"
   }
 }

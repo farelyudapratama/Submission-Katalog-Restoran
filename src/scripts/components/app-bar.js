@@ -145,30 +145,6 @@ class AppBar extends HTMLElement {
 
     connectedCallback() {
         this.render();
-        this._addEventListeners();
-    }
-
-    _addEventListeners() {
-        const menuToggle = this._shadowRoot.querySelector('.menu-toggle');
-        const overlay = this._shadowRoot.querySelector('.overlay');
-
-        menuToggle.addEventListener('click', () => this._toggleDrawer());
-        overlay.addEventListener('click', () => this._toggleDrawer());
-    }
-
-    _toggleDrawer() {
-        const drawer = this._shadowRoot.querySelector('.drawer');
-        const overlay = this._shadowRoot.querySelector('.overlay');
-
-        this._isDrawerOpen = !this._isDrawerOpen;
-
-        if (this._isDrawerOpen) {
-            drawer.classList.add('open');
-            overlay.style.display = 'block';
-        } else {
-            drawer.classList.remove('open');
-            overlay.style.display = 'none';
-        }
     }
 
     render() {
@@ -181,19 +157,19 @@ class AppBar extends HTMLElement {
             <h1 class="appbar-brand">RestoZone</h1>
             <div class="appbar-nav">
                 <a href="/">Home</a>
-                <a href="#">Favorite</a>
+                <a href="#/favorite">Favorite</a>
                 <a href="https://github.com/farelyudapratama" target="_blank">About Us</a>
             </div>
-            <button class="menu-toggle">&#9776;</button>
+            <button id="menu-toggle" class="menu-toggle">&#9776;</button>
         </div>
-        <div class="drawer">
+        <div id="drawer" class="drawer">
             <nav class="drawer-nav">
                 <a href="/">Home</a>
-                <a href="#">Favorite</a>
+                <a href="#/favorite">Favorite</a>
                 <a href="https://github.com/farelyudapratama" target="_blank">About Us</a>
             </nav>
         </div>
-        <div class="overlay"></div>
+        <div id="overlay" class="overlay"></div>
         `;
     }
 }
