@@ -16,11 +16,6 @@ const createRestaurantDetailTemplate = (restaurant) => `
           ${restaurant.categories.map(category => `<span class="category" aria-label="Category: ${category.name}">${category.name}</span>`).join('')}
         </div>
 
-        <div class="restaurant-action">
-            <button aria-label="Add to favorite" id="favoriteButton" class="favorite">
-                <i class="fa fa-heart-o" aria-hidden="true"></i>Add to Favorite
-            </button>
-        </div>
       </div>
     </div>
     <div class="restaurant-description" tabindex="0">

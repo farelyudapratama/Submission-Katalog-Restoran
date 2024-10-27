@@ -1,6 +1,7 @@
 import { createRestaurantDetailTemplate, createLikeButtonTemplate } from '../templates/template-creator';
 import RestaurantDBSource from '../../data/restaurantdb-source';
 import UrlParser from '../../routes/url-parser';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
 
 const Detail = {
     async render() {
@@ -26,6 +27,20 @@ const Detail = {
                 if (!data.error && data.restaurant) {
                     const restaurantDetailElement = document.getElementById('restaurant-detail');
                     restaurantDetailElement.innerHTML = createRestaurantDetailTemplate(data.restaurant);
+
+                    LikeButtonInitiator.init({
+                        likeButtonContainer: document.getElementById('likeButtonContainer'),
+                        restaurant: {
+                            id: data.restaurant.id,
+                            name: data.restaurant.name,
+                            description: data.restaurant.description,
+                            pictureId: data.restaurant.pictureId,
+                            city: data.restaurant.city,
+                            rating: data.restaurant.rating,
+                            food: data.restaurant.menus.foods,
+                            drink: data.restaurant.menus.drinks,
+                        },
+                    });
                 } else {
                     console.error('Failed to fetch restaurant details:', data.message);
                     document.getElementById('restaurant-detail').innerHTML = '<p>Failed to load restaurant details.</p>';
@@ -38,9 +53,6 @@ const Detail = {
             console.error('No restaurant ID provided');
             document.getElementById('restaurant-detail').innerHTML = '<p>No restaurant ID provided.</p>';
         }
-
-        const likeButtonContainer = document.querySelector('#likeButtonContainer');
-        likeButtonContainer.innerHTML = createLikeButtonTemplate();
     }
 };
 

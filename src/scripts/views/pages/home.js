@@ -6,7 +6,7 @@ const Home = {
         return `
             <hero-element></hero-element>
             <div class="restaurant-container">
-                <h1 tabindex="0">Explore Restaurants</h1>
+            <h1 tabindex="0">Explore Restaurants</h1>
                 <div class="restaurants" id="restaurants">
                 </div>
             </div>
