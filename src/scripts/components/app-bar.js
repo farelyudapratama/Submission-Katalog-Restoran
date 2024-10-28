@@ -1,17 +1,17 @@
 class AppBar extends HTMLElement {
-    _shadowRoot = null;
-    _style = null;
-    _isDrawerOpen = false;
+  _shadowRoot = null;
+  _style = null;
+  _isDrawerOpen = false;
 
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this._shadowRoot = this.attachShadow({ mode: "open" });
-        this._style = document.createElement("style");
-    }
+    this._shadowRoot = this.attachShadow({ mode: "open" });
+    this._style = document.createElement("style");
+  }
 
-    _updateStyle() {
-        this._style.textContent = `
+  _updateStyle() {
+    this._style.textContent = `
         :host {
             display: block;
             width: 100%;
@@ -137,22 +137,22 @@ class AppBar extends HTMLElement {
             }
         }
         `;
-    }
+  }
 
-    _emptyContent() {
-        this._shadowRoot.innerHTML = "";
-    }
+  _emptyContent() {
+    this._shadowRoot.innerHTML = "";
+  }
 
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this._emptyContent();
-        this._updateStyle();
+  render() {
+    this._emptyContent();
+    this._updateStyle();
 
-        this._shadowRoot.appendChild(this._style);
-        this._shadowRoot.innerHTML += `      
+    this._shadowRoot.appendChild(this._style);
+    this._shadowRoot.innerHTML += `      
         <div class="appbar">
             <h1 class="appbar-brand">RestoZone</h1>
             <div class="appbar-nav">
@@ -171,7 +171,7 @@ class AppBar extends HTMLElement {
         </div>
         <div id="overlay" class="overlay"></div>
         `;
-    }
+  }
 }
 
 customElements.define("app-bar", AppBar);

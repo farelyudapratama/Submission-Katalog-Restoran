@@ -1,21 +1,21 @@
 class RestaurantsList extends HTMLElement {
-    _shadowRoot = null;
-    _style = null;
-    _column = 3;
-    _gutter = 16;
+  _shadowRoot = null;
+  _style = null;
+  _column = 3;
+  _gutter = 16;
 
-    static get observedAttributes() {
-        return ['column', 'gutter'];
-    }
+  static get observedAttributes () {
+    return ['column', 'gutter'];
+  }
 
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._style = document.createElement('style');
-    }
+  constructor () {
+    super();
+    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._style = document.createElement('style');
+  }
 
-    _updateStyle() {
-        this._style.textContent = `
+  _updateStyle () {
+    this._style.textContent = `
             :host {
                 display: block;
                 width: 100%;
@@ -56,47 +56,47 @@ class RestaurantsList extends HTMLElement {
                 }
             }
       `;
+  }
+
+  _emptyContent () {
+    this._shadowRoot.innerHTML = '';
+  }
+
+  async _fetchRestaurants () {
+    try {
+      const response = await fetch('/data/DATA.json');
+      const data = await response.json();
+      this._render(data.restaurants);
+    } catch (error) {
+      console.error('Error fetching restaurants:', error);
     }
+  }
 
-    _emptyContent() {
-        this._shadowRoot.innerHTML = '';
-    }
+  _render (restaurants) {
+    this._emptyContent();
+    this._shadowRoot.appendChild(this._style);
 
-    async _fetchRestaurants() {
-        try {
-            const response = await fetch('/data/DATA.json');
-            const data = await response.json();
-            this._render(data.restaurants);
-        } catch (error) {
-            console.error('Error fetching restaurants:', error);
-        }
-    }
-
-    _render(restaurants) {
-        this._emptyContent();
-        this._shadowRoot.appendChild(this._style);
-
-        this._shadowRoot.innerHTML += `
+    this._shadowRoot.innerHTML += `
             <h1 tabindex="0">Explore Restaurants</h1>
         `;
 
-        const restaurantList = document.createElement('div');
-        restaurantList.classList.add('restaurant-list');
-        restaurantList.setAttribute('role', 'list');
-        restaurants.forEach((restaurant) => {
-            const restaurantItem = document.createElement('restaurant-item');
-            restaurantItem.restaurant = restaurant;
-            restaurantItem.setAttribute('role', 'listitem');
-            restaurantList.appendChild(restaurantItem);
-        });
+    const restaurantList = document.createElement('div');
+    restaurantList.classList.add('restaurant-list');
+    restaurantList.setAttribute('role', 'list');
+    restaurants.forEach((restaurant) => {
+      const restaurantItem = document.createElement('restaurant-item');
+      restaurantItem.restaurant = restaurant;
+      restaurantItem.setAttribute('role', 'listitem');
+      restaurantList.appendChild(restaurantItem);
+    });
 
-        this._shadowRoot.appendChild(restaurantList);
-    }
+    this._shadowRoot.appendChild(restaurantList);
+  }
 
-    connectedCallback() {
-        this._updateStyle();
-        this._fetchRestaurants();
-    }
+  connectedCallback () {
+    this._updateStyle();
+    this._fetchRestaurants();
+  }
 }
 
 customElements.define('restaurants-list', RestaurantsList);

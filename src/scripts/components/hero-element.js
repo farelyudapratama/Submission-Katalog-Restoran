@@ -1,14 +1,14 @@
 class HeroElement extends HTMLElement {
-    _style = null;
+  _style = null;
 
-    constructor() {
-        super();
-        this.attachShadow({ mode: "open" });
-        this._style = document.createElement("style");
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this._style = document.createElement("style");
+  }
 
-    _updateStyle() {
-        this._style.textContent = `
+  _updateStyle() {
+    this._style.textContent = `
             :host {
                 display: block;
                 width: 100%;
@@ -142,34 +142,34 @@ class HeroElement extends HTMLElement {
                 }
             }
         `;
-    }
+  }
 
-    connectedCallback() {
-        this.render();
-        const ctaButton = this.shadowRoot.querySelector('.cta-button');
-        ctaButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetSection = document.getElementById('explore');
-            if (targetSection) {
-                const offset = 100;
-                const elementPosition = targetSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.scrollY - offset;
+  connectedCallback() {
+    this.render();
+    const ctaButton = this.shadowRoot.querySelector(".cta-button");
+    ctaButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      const targetSection = document.getElementById("explore");
+      if (targetSection) {
+        const offset = 100;
+        const elementPosition = targetSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - offset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            } else {
-                console.error('Element with ID "explore" not found.');
-            }
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
         });
-    }
+      } else {
+        console.error('Element with ID "explore" not found.');
+      }
+    });
+  }
 
-    render() {
-        this._updateStyle();
-        this.shadowRoot.appendChild(this._style);
+  render() {
+    this._updateStyle();
+    this.shadowRoot.appendChild(this._style);
 
-        this.shadowRoot.innerHTML += `
+    this.shadowRoot.innerHTML += `
             <div class="hero">
                 <div class="hero-content" tabindex="0">
                     <h1>Discover Culinary Delights</h1>
@@ -178,7 +178,7 @@ class HeroElement extends HTMLElement {
                 </div>
             </div>
         `;
-    }
+  }
 }
 
-customElements.define('hero-element', HeroElement);
+customElements.define("hero-element", HeroElement);

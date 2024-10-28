@@ -81,6 +81,6 @@ const createLikedButtonTemplate = () => `
 `;
 
 export {
-    createRestaurantDetailTemplate, createRestaurantItemTemplate, createLikeButtonTemplate,
-    createLikedButtonTemplate,
+  createRestaurantDetailTemplate, createRestaurantItemTemplate, createLikeButtonTemplate,
+  createLikedButtonTemplate
 };

@@ -8,7 +8,9 @@
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -16,6 +18,7 @@
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
+    "@eslint/js": "^9.13.0",
     "@jest/globals": "^29.6.1",
     "@types/jest": "^29.5.3",
     "babel-jest": "^29.6.1",
@@ -23,7 +26,9 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
+    "eslint": "^9.13.0",
     "fake-indexeddb": "^4.0.2",
+    "globals": "^15.11.0",
     "html-webpack-plugin": "^5.5.3",
     "http-server": "^14.1.1",
     "jest": "^29.6.1",
@@ -33,10 +38,12 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
     "webpack-merge": "^5.9.0",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "workbox-webpack-plugin": "^7.1.0"
   },
   "dependencies": {
     "idb": "^8.0.0",
-    "regenerator-runtime": "^0.14.0"
+    "regenerator-runtime": "^0.14.0",
+    "workbox-window": "^7.1.0"
   }
 }

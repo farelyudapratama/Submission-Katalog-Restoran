@@ -5,25 +5,25 @@ class RestaurantItem extends HTMLElement {
     description: null,
     pictureId: null,
     city: null,
-    rating: null,
-  }
+    rating: null
+  };
 
-  constructor() {
+  constructor () {
     super();
     this._shadowRoot = this.attachShadow({ mode: 'open' });
     this._style = document.createElement('style');
   }
 
-  set restaurant(restaurant) {
+  set restaurant (restaurant) {
     this._restaurant = restaurant;
     this.render();
   }
 
-  get restaurant() {
+  get restaurant () {
     return this._restaurant;
   }
 
-  _updateStyle() {
+  _updateStyle () {
     this._style.textContent = `
       :host {
         display: block;
@@ -94,15 +94,15 @@ class RestaurantItem extends HTMLElement {
     `;
   }
 
-  _emptyContent() {
+  _emptyContent () {
     this._shadowRoot.innerHTML = '';
   }
 
-  connectedCallback() {
+  connectedCallback () {
     this.render();
   }
 
-  render() {
+  render () {
     this._emptyContent();
     this._updateStyle();
     this._shadowRoot.appendChild(this._style);
