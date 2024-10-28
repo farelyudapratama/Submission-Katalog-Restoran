@@ -362,6 +362,8 @@ p {
 
 .review-form input,
 .review-form textarea {
+  min-width: 44px;
+  min-height: 44px;
   width: 100%;
   padding: 8px;
   margin-bottom: 8px;
@@ -370,6 +372,8 @@ p {
 }
 
 .review-form button {
+  min-width: 44px;
+  min-height: 44px;
   padding: 8px;
   background: var(--color-primary);
   color: white;
