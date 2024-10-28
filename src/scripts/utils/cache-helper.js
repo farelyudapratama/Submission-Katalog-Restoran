@@ -1,7 +1,7 @@
 import CONFIG from '../globals/config';
 
 const CacheHelper = {
-  async cachingAppShell (requests) {
+  async cachingAppShell(requests) {
     const cache = await this._openCache();
     try {
       await cache.addAll(requests);
@@ -10,7 +10,7 @@ const CacheHelper = {
     }
   },
 
-  async deleteOldCache () {
+  async deleteOldCache() {
     const cacheNames = await caches.keys();
     await Promise.all(
       cacheNames
@@ -19,7 +19,7 @@ const CacheHelper = {
     );
   },
 
-  async revalidateCache (request) {
+  async revalidateCache(request) {
     const response = await caches.match(request);
 
     if (response) {
@@ -29,12 +29,13 @@ const CacheHelper = {
     return this._fetchRequest(request);
   },
 
-  async _openCache () {
+  async _openCache() {
     return caches.open(CONFIG.CACHE_NAME);
   },
 
-  async _fetchRequest (request) {
+  async _fetchRequest(request) {
     try {
+      console.log(`Fetching request: ${request.url}`);
       const response = await fetch(request);
 
       if (!response || response.status !== 200) {
@@ -47,19 +48,26 @@ const CacheHelper = {
       console.error('Failed to fetch request:', error);
       return new Response('Network error occurred', {
         status: 408,
-        statusText: 'Network error occurred'
+        statusText: 'Network error occurred',
       });
     }
   },
 
-  async _addCache (request, response) {
+  async _addCache(request, response) {
     const cache = await this._openCache();
     try {
-      await cache.put(request, response);
+      const url = new URL(request.url);
+      if (url.protocol === 'http:' || url.protocol === 'https:') {
+        await cache.put(request, response);
+      } else {
+        console.warn(
+          `Request with unsupported scheme (${url.protocol}) will not be cached.`
+        );
+      }
     } catch (error) {
       console.error('Failed to add request to cache:', error);
     }
-  }
+  },
 };
 
 export default CacheHelper;

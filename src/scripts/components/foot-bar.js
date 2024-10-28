@@ -5,11 +5,11 @@ class FootBar extends HTMLElement {
   constructor() {
     super();
 
-    this._shadowRoot = this.attachShadow({ mode: "open" });
-    this._style = document.createElement("style");
+    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._style = document.createElement('style');
   }
 
-  static observedAttributes = ["name"];
+  static observedAttributes = ['name'];
 
   _updateStyle() {
     this._style.textContent = `
@@ -31,13 +31,13 @@ class FootBar extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === "name" && oldValue !== newValue) {
+    if (name === 'name' && oldValue !== newValue) {
       this.render();
     }
   }
 
   render() {
-    this._shadowRoot.innerHTML = "";
+    this._shadowRoot.innerHTML = '';
     this._updateStyle();
     this._shadowRoot.appendChild(this._style);
 
@@ -49,4 +49,4 @@ class FootBar extends HTMLElement {
   }
 }
 
-customElements.define("foot-bar", FootBar);
+customElements.define('foot-bar', FootBar);

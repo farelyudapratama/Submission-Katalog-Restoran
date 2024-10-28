@@ -3,8 +3,8 @@ class HeroElement extends HTMLElement {
 
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
-    this._style = document.createElement("style");
+    this.attachShadow({ mode: 'open' });
+    this._style = document.createElement('style');
   }
 
   _updateStyle() {
@@ -146,10 +146,10 @@ class HeroElement extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    const ctaButton = this.shadowRoot.querySelector(".cta-button");
-    ctaButton.addEventListener("click", (event) => {
+    const ctaButton = this.shadowRoot.querySelector('.cta-button');
+    ctaButton.addEventListener('click', (event) => {
       event.preventDefault();
-      const targetSection = document.getElementById("explore");
+      const targetSection = document.getElementById('explore');
       if (targetSection) {
         const offset = 100;
         const elementPosition = targetSection.getBoundingClientRect().top;
@@ -157,7 +157,7 @@ class HeroElement extends HTMLElement {
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       } else {
         console.error('Element with ID "explore" not found.');
@@ -181,4 +181,4 @@ class HeroElement extends HTMLElement {
   }
 }
 
-customElements.define("hero-element", HeroElement);
+customElements.define('hero-element', HeroElement);

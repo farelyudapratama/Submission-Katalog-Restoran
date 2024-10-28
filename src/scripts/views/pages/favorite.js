@@ -2,9 +2,9 @@ import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 const Favorite = {
-  async render () {
+  async render() {
     return `
-        <div class="content">
+        <div class="content" tabindex="0">
             <h2 class="content__heading">Your Favorite</h2>
             <div id="restaurants" class="restaurants">
         
@@ -13,14 +13,15 @@ const Favorite = {
       `;
   },
 
-  async afterRender () {
+  async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
     const restaurantsContainer = document.querySelector('#restaurants');
 
     restaurants.forEach((restaurant) => {
-      restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+      restaurantsContainer.innerHTML +=
+        createRestaurantItemTemplate(restaurant);
     });
-  }
+  },
 };
 
 export default Favorite;

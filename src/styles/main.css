@@ -348,3 +348,37 @@ p {
   color: white;
   cursor: pointer;
 }
+
+/* Add reviews */
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewForm label {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.review-form button {
+  padding: 8px;
+  background: var(--color-primary);
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.review-form button:hover {
+  background: var(--color-secondary);
+}

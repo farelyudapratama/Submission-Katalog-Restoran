@@ -1,7 +1,7 @@
 import API_ENDPOINT from '../globals/api-endpoint';
 
 class RestaurantDBSource {
-  static async home () {
+  static async home() {
     try {
       const response = await fetch(API_ENDPOINT.HOME);
       const data = await response.json();
@@ -19,8 +19,23 @@ class RestaurantDBSource {
     }
   }
 
-  static async detail (id) {
+  static async detail(id) {
     const response = await fetch(API_ENDPOINT.DETAIL(id));
+    return response.json();
+  }
+
+  static async addReview({ id, name, review }) {
+    const response = await fetch(API_ENDPOINT.REVIEW, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id,
+        name,
+        review,
+      }),
+    });
     return response.json();
   }
 }

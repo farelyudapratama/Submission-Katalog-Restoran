@@ -2,7 +2,7 @@ import RestaurantDBSource from '../../data/restaurantdb-source';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 const Home = {
-  async render () {
+  async render() {
     return `
             <hero-element></hero-element>
             <div class="restaurant-container">
@@ -13,7 +13,7 @@ const Home = {
         `;
   },
 
-  async afterRender () {
+  async afterRender() {
     // Fungsi ini akan dipanggil setelah render()
     let restaurants = [];
     try {

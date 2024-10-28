@@ -4,17 +4,17 @@ class RestaurantsList extends HTMLElement {
   _column = 3;
   _gutter = 16;
 
-  static get observedAttributes () {
+  static get observedAttributes() {
     return ['column', 'gutter'];
   }
 
-  constructor () {
+  constructor() {
     super();
     this._shadowRoot = this.attachShadow({ mode: 'open' });
     this._style = document.createElement('style');
   }
 
-  _updateStyle () {
+  _updateStyle() {
     this._style.textContent = `
             :host {
                 display: block;
@@ -58,11 +58,11 @@ class RestaurantsList extends HTMLElement {
       `;
   }
 
-  _emptyContent () {
+  _emptyContent() {
     this._shadowRoot.innerHTML = '';
   }
 
-  async _fetchRestaurants () {
+  async _fetchRestaurants() {
     try {
       const response = await fetch('/data/DATA.json');
       const data = await response.json();
@@ -72,7 +72,7 @@ class RestaurantsList extends HTMLElement {
     }
   }
 
-  _render (restaurants) {
+  _render(restaurants) {
     this._emptyContent();
     this._shadowRoot.appendChild(this._style);
 
@@ -93,7 +93,7 @@ class RestaurantsList extends HTMLElement {
     this._shadowRoot.appendChild(restaurantList);
   }
 
-  connectedCallback () {
+  connectedCallback() {
     this._updateStyle();
     this._fetchRestaurants();
   }
