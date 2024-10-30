@@ -331,6 +331,8 @@ p {
 
 /* favorite */
 .like {
+  min-width: 44px;
+  min-height: 44px;
   width: 55px;
   height: 55px;
   display: flex;
