@@ -156,7 +156,7 @@ class AppBar extends HTMLElement {
         <div class="appbar">
             <h1 class="appbar-brand">RestoZone</h1>
             <div class="appbar-nav">
-                <a href="/">Home</a>
+                <a href="#/">Home</a>
                 <a href="#/favorite">Favorite</a>
                 <a href="https://github.com/farelyudapratama" target="_blank">About Us</a>
             </div>
@@ -164,7 +164,7 @@ class AppBar extends HTMLElement {
         </div>
         <div id="drawer" class="drawer">
             <nav class="drawer-nav">
-                <a href="/">Home</a>
+                <a href="#/">Home</a>
                 <a href="#/favorite">Favorite</a>
                 <a href="https://github.com/farelyudapratama" target="_blank">About Us</a>
             </nav>
