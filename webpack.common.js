@@ -28,6 +28,19 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              cacheDirectory: true,
+            },
+          },
+        ],
+      },
     ],
   },
   optimization: {
@@ -44,7 +57,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
@@ -58,4 +70,14 @@ module.exports = {
       ],
     }),
   ],
+  cache: {
+    type: 'filesystem',
+    buildDependencies: {
+      config: [__filename],
+    },
+  },
 };
+
+if (process.env.CI !== 'true') {
+  module.exports.plugins.push(new BundleAnalyzerPlugin());
+}
