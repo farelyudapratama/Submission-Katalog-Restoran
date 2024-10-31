@@ -52,10 +52,10 @@ footer {
   flex-shrink: 0;
 }
 
-/*  */
 .restaurant-container {
   margin-top: 100px;
 }
+
 h1 {
   font-size: 3em;
   text-align: center;
@@ -76,7 +76,7 @@ h1 {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  transition: transform .2s;
 }
 
 .restaurant-item:hover {
@@ -90,15 +90,11 @@ h1 {
   }
 }
 
-/*  */
-.restaurant-item {
-  display: flex;
-  flex-direction: column;
-}
 .image-container {
   position: relative;
   padding-top: 56.25%;
 }
+
 .image-container img {
   position: absolute;
   top: 0;
@@ -107,6 +103,7 @@ h1 {
   height: 100%;
   object-fit: cover;
 }
+
 .city-tag {
   position: absolute;
   top: 10px;
@@ -117,24 +114,29 @@ h1 {
   border-radius: 4px;
   font-weight: bold;
 }
+
 .content {
   padding: 16px;
 }
+
 .rating {
   display: flex;
   align-items: center;
   font-size: 2em;
   color: var(--color-primary);
 }
+
 .rating-value {
   font-weight: bold;
   margin-right: 5px;
 }
+
 h2 {
   margin: 0 0 8px 0;
   font-size: 1.5em;
   color: #333;
 }
+
 p {
   margin: 0;
   color: #666;
@@ -152,15 +154,13 @@ p {
   }
 }
 
-/* DETAIL */
-
 .restaurant-detail {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
 }
 
 .restaurant-header {
@@ -174,7 +174,7 @@ p {
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
 }
 
 .restaurant-info {
@@ -234,7 +234,7 @@ p {
   color: white;
   padding: 6px 12px;
   border-radius: 16px;
-  font-size: 0.9rem;
+  font-size: .9rem;
 }
 
 .restaurant-description {
@@ -279,7 +279,7 @@ p {
   padding: 12px 16px;
   border-radius: 8px;
   color: #2d3436;
-  transition: transform 0.2s;
+  transition: transform .2s;
 }
 
 .menu-section li:hover {
@@ -301,7 +301,7 @@ p {
 
 .review span {
   color: #636e72;
-  font-size: 0.9rem;
+  font-size: .9rem;
 }
 
 .review p:last-child {
@@ -329,7 +329,6 @@ p {
   }
 }
 
-/* favorite */
 .like {
   min-width: 44px;
   min-height: 44px;
@@ -339,19 +338,16 @@ p {
   align-items: center;
   justify-content: center;
   background-color: #db0000;
-
   position: fixed;
   bottom: 16px;
   right: 16px;
   border-radius: 50%;
   border: 0;
-
   font-size: 18px;
   color: white;
   cursor: pointer;
 }
 
-/* Add reviews */
 .reviewForm {
   display: flex;
   flex-direction: column;
@@ -382,7 +378,7 @@ p {
   border: 0;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background .2s;
 }
 
 .review-form button:hover {

@@ -109,7 +109,8 @@ const createRestaurantItemTemplate = (restaurant) => `
       <div class="image-container">
         <img alt="Image of ${
   restaurant.name
-} restaurant" crossorigin="anonymous" loading="lazy"
+} restaurant" crossorigin="anonymous" loading="lazy" width="300" 
+     height="200"
          src="${`${CONFIG.BASE_IMAGE_URL  }small/${  restaurant.pictureId}`}">
         <div class="city-tag" aria-label="City: ${restaurant.city}">${
   restaurant.city
