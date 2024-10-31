@@ -7,7 +7,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <div class="restaurant-header">
       <img alt="Image of ${
   restaurant.name
-} restaurant" crossorigin="anonymous" loading="lazy" src="${
+} restaurant" crossorigin="anonymous" loading="lazy" width="448px" height="300px" src="${
   `${CONFIG.BASE_IMAGE_URL  }large/${  restaurant.pictureId}`
 }">
       <div class="restaurant-info">
