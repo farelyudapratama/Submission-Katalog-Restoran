@@ -17,11 +17,15 @@ const Favorite = {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
     const restaurantsContainer = document.querySelector('#restaurants');
 
-    restaurants.forEach((restaurant) => {
+    if (restaurants.length === 0) {
+      restaurantsContainer.innerHTML = '<p class="restaurant-item__not__found">Tidak ada restoran untuk ditampilkan</p>';
+    } else {
+      restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML +=
         createRestaurantItemTemplate(restaurant);
-    });
-  },
-};
+      });
+    }
+    },
+  };
 
-export default Favorite;
+  export default Favorite;

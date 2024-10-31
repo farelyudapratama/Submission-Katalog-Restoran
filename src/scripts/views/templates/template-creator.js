@@ -70,8 +70,8 @@ const createRestaurantDetailTemplate = (restaurant) => `
     .map(
       (review) => `
         <div class="review">
-          <p><strong>${review.name}</strong>, <span>${review.date}</span></p>
-          <p>${review.review}</p>
+          <p class="review__name"><strong>${review.name}</strong>, <span>${review.date}</span></p>
+          <p class="review__content">${review.review}</p>
         </div>
       `
     )
@@ -92,7 +92,7 @@ const createReviewFormTemplate = () => `
         <label for="reviewContent">Review:</label>
         <textarea id="reviewContent" placeholder="Write your review" required aria-label="Your review"></textarea>
       </div>
-      <button type="submit" aria-label="Submit your review">Submit</button>
+      <button type="submit" aria-label="Submit your review" id="submitReview">Submit</button>
     </form>
   </div>
 `;
@@ -120,7 +120,7 @@ const createRestaurantItemTemplate = (restaurant) => `
           <span class="rating-value">${restaurant.rating}</span>
           <span>&#9733;</span>
         </div>
-        <h2 tabindex="0">${restaurant.name}</h2>
+        <h2 tabindex="0" class="restaurant-item__name">${restaurant.name}</h2>
         <p tabindex="0">${restaurant.description}</p>
       </div>
     </a>
