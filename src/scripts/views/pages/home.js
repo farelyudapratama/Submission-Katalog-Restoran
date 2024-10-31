@@ -14,7 +14,6 @@ const Home = {
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
     let restaurants = [];
     try {
       restaurants = await RestaurantDBSource.home();

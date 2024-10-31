@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Gurajada&family=Satisfy&display=swap");
-
 :root {
   --color-primary: #b96709;
   --color-secondary: #227395;
@@ -12,13 +11,9 @@
   --font-main: "Gurajada", serif;
   --font-accent: "Satisfy", cursive;
 }
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
-
 body {
   font-family: var(--font-main);
   color: var(--color-text);
