@@ -1,6 +1,5 @@
 import DrawerInitiator from '../utils/drawer-initiator';
 import UrlParser from '../routes/url-parser';
-import routes from '../routes/routes';
 
 class App {
   constructor({ button, drawer, content }) {
@@ -21,15 +20,21 @@ class App {
 
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
-    const page = routes[url];
-    this._content.innerHTML = await page.render();
-    await page.afterRender();
+    const routes = await import('../routes/routes');
+    const page = routes.default[url];
+    
+    try {
+      this._content.innerHTML = await page.render();
+      await page.afterRender();
 
-    const skipLinkElem = document.querySelector('.skip-to-content');
-    skipLinkElem.addEventListener('click', (event) => {
-      event.preventDefault();
-      document.querySelector('#explore').focus();
-    });
+      const skipLinkElem = document.querySelector('.skip-to-content');
+      skipLinkElem?.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.querySelector('#explore')?.focus();
+      });
+    } catch (error) {
+      console.error('Error rendering page:', error);
+    }
   }
 }
 
