@@ -3,8 +3,7 @@ import CONFIG from '../../globals/config';
 const createRestaurantDetailTemplate = (restaurant) => `
   <div class="restaurant-detail" tabindex="0" aria-label="Details of restaurant ${restaurant.name}">
     <div class="restaurant-header">
-      <link rel="preload" href="${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}" as="image">
-      <img alt="Image of ${restaurant.name} restaurant" crossorigin="anonymous" loading="lazy" width="448" height="300" src="${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}">
+      <img alt="Image of ${restaurant.name} restaurant" crossorigin="anonymous" loading="lazy" width="448" height="300" src="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId}">
       <div class="restaurant-info">
         <h2>${restaurant.name}</h2>
         <p class="city" aria-label="City: ${restaurant.city}">${restaurant.city}</p>
