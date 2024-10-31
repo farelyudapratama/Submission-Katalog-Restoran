@@ -1,21 +1,38 @@
 import CONFIG from '../../globals/config';
 
 const createRestaurantDetailTemplate = (restaurant) => `
-  <div class="restaurant-detail" tabindex="0" aria-label="Details of restaurant ${restaurant.name}">
+  <div class="restaurant-detail" tabindex="0" aria-label="Details of restaurant ${
+  restaurant.name
+}">
     <div class="restaurant-header">
-      <img 
-  alt="Image of ${restaurant.name} restaurant" crossorigin="anonymous" loading="lazy" width="448" height="300" src="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId}" srcset="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId} 300w, ${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId} 448w, ${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId} 800w">
+      <img alt="Image of ${
+  restaurant.name
+} restaurant" crossorigin="anonymous" loading="eager" height="300px" width="448px" src="${
+  `${CONFIG.BASE_IMAGE_URL  }small/${  restaurant.pictureId}`
+}">
       <div class="restaurant-info">
         <h2>${restaurant.name}</h2>
-        <p class="city" aria-label="City: ${restaurant.city}">${restaurant.city}</p>
-        <p class="address" aria-label="Address: ${restaurant.address}">${restaurant.address}</p>
-        <div class="rating-detail" aria-label="Rating: ${restaurant.rating} stars">
+        <p class="city" aria-label="City: ${restaurant.city}">${
+  restaurant.city
+}</p>
+        <p class="address" aria-label="Address: ${restaurant.address}">${
+  restaurant.address
+}</p>
+        <div class="rating-detail" aria-label="Rating: ${
+  restaurant.rating
+} stars">
           <span class="rating-value">${restaurant.rating}</span>
           <span>&#9733;</span>
         </div>
         <div class="categories">
-          ${restaurant.categories.map(category => `<span class="category" aria-label="Category: ${category.name}">${category.name}</span>`).join('')}
+          ${restaurant.categories
+    .map(
+      (category) =>
+        `<span class="category" aria-label="Category: ${category.name}">${category.name}</span>`
+    )
+    .join('')}
         </div>
+
       </div>
     </div>
     <div class="restaurant-description" tabindex="0">
@@ -26,29 +43,42 @@ const createRestaurantDetailTemplate = (restaurant) => `
       <div class="menu-section">
         <h4>Foods</h4>
         <ul>
-          ${restaurant.menus.foods.map(food => `<li aria-label="Food item: ${food.name}">${food.name}</li>`).join('')}
+          ${restaurant.menus.foods
+    .map(
+      (food) =>
+        `<li aria-label="Food item: ${food.name}">${food.name}</li>`
+    )
+    .join('')}
         </ul>
       </div>
       <div class="menu-section">
         <h4>Drinks</h4>
         <ul>
-          ${restaurant.menus.drinks.map(drink => `<li aria-label="Drink item: ${drink.name}">${drink.name}</li>`).join('')}
+          ${restaurant.menus.drinks
+    .map(
+      (drink) =>
+        `<li aria-label="Drink item: ${drink.name}">${drink.name}</li>`
+    )
+    .join('')}
         </ul>
       </div>
     </div>
     <div class="restaurant-reviews">
-      ${createReviewFormTemplate()}
+    ${createReviewFormTemplate()}
       <h3>Customer Reviews</h3>
-      ${restaurant.customerReviews.map(review => `
+      ${restaurant.customerReviews
+    .map(
+      (review) => `
         <div class="review">
           <p class="review__name"><strong>${review.name}</strong>, <span>${review.date}</span></p>
           <p class="review__content">${review.review}</p>
         </div>
-      `).join('')}
+      `
+    )
+    .join('')}
     </div>
   </div>
 `;
-
 
 const createReviewFormTemplate = () => `
   <div class="review-form">
