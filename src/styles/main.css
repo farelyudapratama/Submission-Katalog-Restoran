@@ -39,8 +39,6 @@ a {
   color: #fff;
   padding: 8px;
   z-index: 100;
-  min-width: 44px;
-  max-width: 44px;
 }
 
 .skip-to-content:focus {
