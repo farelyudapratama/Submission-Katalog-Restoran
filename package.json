@@ -15,6 +15,10 @@
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
   "license": "ISC",
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
@@ -50,6 +54,7 @@
     "idb": "^8.0.0",
     "regenerator-runtime": "^0.14.0",
     "sharp": "^0.33.5",
-    "workbox-window": "^7.1.0"
+    "workbox-window": "^7.1.0",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }
