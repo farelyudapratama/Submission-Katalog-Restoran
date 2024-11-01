@@ -10,7 +10,8 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "lint": "eslint ./src",
-    "lint:fix": "eslint --fix ./src"
+    "lint:fix": "eslint --fix ./src",
+    "build-image": "node sharp.js"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -36,6 +37,7 @@
     "jest": "^29.6.1",
     "jest-environment-jsdom": "^29.6.1",
     "playwright": "^1.48.2",
+    "sharp": "^0.33.5",
     "style-loader": "^3.3.4",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",

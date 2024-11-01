@@ -5,11 +5,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   restaurant.name
 }">
     <div class="restaurant-header">
-      <img alt="Image of ${
-  restaurant.name
-} restaurant" crossorigin="anonymous" src="${
-  `${CONFIG.BASE_IMAGE_URL  }large/${  restaurant.pictureId}`
-}">
+      <img alt="Image of ${restaurant.name} restaurant" crossorigin="anonymous" loading="lazy" srcset="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId} 480w, ${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId} 800w" sizes="(max-width: 600px) 100vw, 40vw" src="${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}">
       <div class="restaurant-info">
         <h2>${restaurant.name}</h2>
         <p class="city" aria-label="City: ${restaurant.city}">${
@@ -107,10 +103,7 @@ const createRestaurantItemTemplate = (restaurant) => `
   restaurant.name
 } detail page">
       <div class="image-container">
-        <img alt="Image of ${
-  restaurant.name
-} restaurant" crossorigin="anonymous"
-         src="${`${CONFIG.BASE_IMAGE_URL  }small/${  restaurant.pictureId}`}">
+        <img alt="Image of ${restaurant.name} restaurant" loading="lazy" crossorigin="anonymous"src="${`${CONFIG.BASE_IMAGE_URL  }small/${  restaurant.pictureId}`}">
         <div class="city-tag" aria-label="City: ${restaurant.city}">${
   restaurant.city
 }</div>

@@ -21,11 +21,11 @@ const Favorite = {
       restaurantsContainer.innerHTML = '<p class="restaurant-item__not__found">Tidak ada restoran untuk ditampilkan</p>';
     } else {
       restaurants.forEach((restaurant) => {
-      restaurantsContainer.innerHTML +=
+        restaurantsContainer.innerHTML +=
         createRestaurantItemTemplate(restaurant);
       });
     }
-    },
-  };
+  },
+};
 
-  export default Favorite;
+export default Favorite;

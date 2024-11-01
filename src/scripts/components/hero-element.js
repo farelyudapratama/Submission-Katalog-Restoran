@@ -16,7 +16,6 @@ class HeroElement extends HTMLElement {
             .hero {
                 width: 100%;
                 height: 90vh;
-                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('./images/heros/hero-image_2.jpg');
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -25,7 +24,6 @@ class HeroElement extends HTMLElement {
                 align-items: center;
                 position: relative;
                 overflow: hidden;
-                
             }
             .hero::after {
                 content: '';
@@ -113,6 +111,18 @@ class HeroElement extends HTMLElement {
                 }
                 .cta-button {
                     display: none;
+                }
+            }
+
+            @media only screen and (max-width: 650px) {
+                .hero {
+                    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(/images/hero-image_2-small.jpg);
+                }
+            }
+
+            @media only screen and (min-width: 651px) {
+                .hero {
+                    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(/images/hero-image_2-large.jpg);
                 }
             }
 
