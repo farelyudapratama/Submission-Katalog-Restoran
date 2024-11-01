@@ -1,5 +1,5 @@
 import 'regenerator-runtime';
-import '../styles/main.css';
+// import '../styles/main.css';
 import swRegister from './utils/sw-register';
 
 const loadComponents = async () => {
