@@ -78,6 +78,6 @@ module.exports = {
   },
 };
 
-if (process.env.CI !== 'true') {
-  module.exports.plugins.push(new BundleAnalyzerPlugin());
-}
+// if (process.env.CI !== 'true') {
+//   module.exports.plugins.push(new BundleAnalyzerPlugin());
+// }
