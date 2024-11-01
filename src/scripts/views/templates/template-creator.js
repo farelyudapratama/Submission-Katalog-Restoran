@@ -5,7 +5,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   restaurant.name
 }">
     <div class="restaurant-header">
-      <img alt="Image of ${restaurant.name} restaurant" crossorigin="anonymous" loading="lazy" srcset="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId} 480w, ${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId} 800w" sizes="(max-width: 600px) 100vw, 40vw" src="${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}">
+      <img alt="Image of ${restaurant.name} restaurant" crossorigin="anonymous" loading="lazy" srcset="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId} 480w, ${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId} 800w" sizes="(max-width: 600px) 100vw, 40vw" src="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}">
       <div class="restaurant-info">
         <h2>${restaurant.name}</h2>
         <p class="city" aria-label="City: ${restaurant.city}">${
@@ -132,9 +132,35 @@ const createUnlikeButtonTemplate = () => `
   </button>
 `;
 
+const createSkeletonRestaurantDetailTemplate = () => `
+  <div class="restaurant-detail">
+    <div class="skeleton skeleton-image"></div>
+    <div class="skeleton skeleton-text"></div>
+    <div class="skeleton skeleton-text"></div>
+    <div class="skeleton skeleton-text"></div>
+    <div class="skeleton skeleton-text"></div>
+  </div>
+`;
+
+const createSkeletonRestaurantTemplate = (count = 10) => {
+  let skeletons = '';
+  for (let i = 0; i < count; i++) {
+    skeletons += `
+      <div class="restaurant-item">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+      </div>
+    `;
+  }
+  return skeletons;
+};
+
 export {
   createRestaurantDetailTemplate,
   createRestaurantItemTemplate,
   createLikeButtonTemplate,
   createUnlikeButtonTemplate,
+  createSkeletonRestaurantDetailTemplate,
+  createSkeletonRestaurantTemplate,
 };

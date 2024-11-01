@@ -1,4 +1,4 @@
-import { createRestaurantDetailTemplate } from '../templates/template-creator';
+import { createRestaurantDetailTemplate, createSkeletonRestaurantDetailTemplate } from '../templates/template-creator';
 import RestaurantDBSource from '../../data/restaurantdb-source';
 import UrlParser from '../../routes/url-parser';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
@@ -6,7 +6,9 @@ import LikeButtonInitiator from '../../utils/like-button-initiator';
 const Detail = {
   async render() {
     return `
-      <div id="restaurant-detail" class="restaurant-detail" tabindex="0"></div>
+      <div id="restaurant-detail" class="restaurant-detail" tabindex="0">
+      ${createSkeletonRestaurantDetailTemplate()}
+      </div>
       <div id="likeButtonContainer"></div>
     `;
   },

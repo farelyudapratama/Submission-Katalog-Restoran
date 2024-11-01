@@ -1,16 +1,17 @@
 import RestaurantDBSource from '../../data/restaurantdb-source';
-import { createRestaurantItemTemplate } from '../templates/template-creator';
+import { createRestaurantItemTemplate, createSkeletonRestaurantTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
     return `
-            <hero-element></hero-element>
-            <div class="restaurant-container">
-            <h1 tabindex="0">Explore Restaurants</h1>
-                <div class="restaurants" id="restaurants">
-                </div>
-            </div>
-        `;
+      <hero-element></hero-element>
+      <div class="restaurant-container">
+        <h1 tabindex="0">Explore Restaurants</h1>
+        <div class="restaurants" id="restaurants">
+          ${createSkeletonRestaurantTemplate()}
+        </div>
+      </div>
+    `;
   },
 
   async afterRender() {
@@ -25,6 +26,7 @@ const Home = {
 
     const restaurantsContainer = document.querySelector('#restaurants');
     if (Array.isArray(restaurants)) {
+      restaurantsContainer.innerHTML = '';
       restaurants.forEach((restaurant) => {
         restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
       });
